@@ -1,0 +1,33 @@
+<p>IgxGrid with optional features like sorting, filtering, editing, etc.<br />
+You can read more about configuring the igx-grid component in the
+<a href="https://github.com/IgniteUI/igniteui-angular/blob/master/projects/igniteui-angular/src/lib/grids/README.md" target="_blank">README</a> or the
+<a href="https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/grid" target="_blank">official documentation</a>.</p>
+<p>Active Features:  <a href="https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/sorting" target="_blank">Sorting</a>, <a href="https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/filtering" target="_blank">Filtering</a>, <a href="https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/editing" target="_blank">Cell Editing</a>, <a href="https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/row-editing" target="_blank">Row Editing</a>, <a href="https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/groupby" target="_blank">Group By</a>, <a href="https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/column-resizing" target="_blank">Resizing</a>, <a href="https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/selection" target="_blank">Row Selection</a>, <a href="https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/paging" target="_blank">Paging</a>, <a href="https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/column-pinning" target="_blank">Column Pinning</a>, <a href="https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/column-moving" target="_blank">Column Moving</a>, <a href="https://www.infragistics.com/products/ignite-ui-angular/angular/components/grid/column-hiding" target="_blank">Column Hiding</a></p>
+<igx-grid #grid1 [data]="localData" primaryKey="EmployeeID" width="900px" height="550px" [allowFiltering]="true" [allowFiltering]="true" [rowEditable]="true" rowSelection="multiple" [moving]="true">
+  <igx-column field="FirstName" header="First Name"  width="150px" [sortable]="true" [filterable]="true" [editable]="true" [resizable]="true" [pinned]="true">
+  </igx-column>
+  <igx-column field="LastName" header="Last Name" width="150px" [sortable]="true" [filterable]="true" [editable]="true" [resizable]="true" [pinned]="true">
+  </igx-column>
+  <igx-column field="Country" width="140px" [sortable]="true" [filterable]="true" [editable]="true" [resizable]="true" [groupable]="true">
+  </igx-column>
+  <igx-column field="Age" width="110px" dataType="number" [sortable]="true" [filterable]="true" [editable]="true" [resizable]="true" [groupable]="true">
+  </igx-column>
+  <igx-column field="RegistererDate" header="Registerer Date" width="180px" dataType="date" [sortable]="true" [filterable]="true" [editable]="true" [resizable]="true">
+    <ng-template igxCell let-value>
+        {{ value | date }}
+    </ng-template>
+  </igx-column>
+    <igx-column field="IsActive" header="Is Active" width="140px" dataType="boolean" [sortable]="true" [filterable]="true" [resizable]="true">
+    <ng-template igxCell let-cell="cell">
+      <igx-checkbox [ngModel]="cell.value" (ngModelChange)="cell.update($event)"></igx-checkbox>
+    </ng-template>
+  </igx-column>
+  <igx-grid-toolbar>
+    <igx-grid-toolbar-title>Employees</igx-grid-toolbar-title>
+    <igx-grid-toolbar-actions>
+      <igx-grid-toolbar-pinning></igx-grid-toolbar-pinning>
+      <igx-grid-toolbar-hiding></igx-grid-toolbar-hiding>
+    </igx-grid-toolbar-actions>
+  </igx-grid-toolbar>
+  <igx-paginator></igx-paginator>
+</igx-grid>
