@@ -19,14 +19,13 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { text: 'Home' } },
   { path: 'error', component: UncaughtErrorComponent },
   { path: 'customgrid', component: CustomGridComponent, data: { text: 'customGrid' } },
-  { path: 'customgrid', component: CustomGridComponent, data: { text: 'customGrid' } },
   { path: 'categorychart', component: CategoryChartComponent, data: { text: 'categoryChart' } },
   { path: 'map', component: MapComponent, data: { text: 'map' } },
   { path: 'awesome-grid', component: AwesomeGridComponent, data: { text: 'awesome-grid' } },
   { path: 'crm-grid', component: CrmGridComponent, data: { text: 'crm-grid' } },
-  { path: 'login-view', component: LoginViewComponent, data: { text: 'login-view' } },
   { path: 'fintech-grid', component: FintechGridComponent, data: { text: 'fintech-grid' } },
   { path: 'list', component: ListComponent, data: { text: 'list' } },
+  { path: 'login-view', component: LoginViewComponent, data: { text: 'login-view' } },
   { path: '**', component: PageNotFoundComponent } // must always be last
 ];
 
